@@ -3,6 +3,7 @@
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "eslint": "^7.32.0",
+    "nodemon": "^2.0.13",
     "ts-node": "^10.2.1"
   },
   "name": "men-boilerplate",
@@ -10,6 +11,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "dependencies": {
+    "@types/express": "^4.17.13",
+    "@types/winston": "^2.4.4",
     "acorn": "^7.4.1",
     "acorn-jsx": "^5.3.2",
     "ajv": "^6.12.6",
@@ -29,6 +32,7 @@
     "debug": "^4.3.2",
     "deep-is": "^0.1.4",
     "doctrine": "^3.0.0",
+    "dotenv": "^10.0.0",
     "emoji-regex": "^8.0.0",
     "enquirer": "^2.3.6",
     "escape-string-regexp": "^4.0.0",
@@ -104,13 +108,14 @@
     "uri-js": "^4.4.1",
     "v8-compile-cache": "^2.3.0",
     "which": "^2.0.2",
+    "winston": "^3.3.3",
     "word-wrap": "^1.2.3",
     "wrappy": "^1.0.2",
     "yallist": "^4.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node .",
+    "dev": "NODE_ENV=dev nodemon",
     "build": "tsc"
   },
   "repository": {
