@@ -1,6 +1,8 @@
-import { NextFunction, Request, Response } from 'express'
+import { Request, Response } from 'express'
+import ApiErr from '../utils/ApiErr';
 import logger from './logger';
-const errorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
+
+const errorHandler = (err: ApiErr, req: Request, res: Response) => {
     const { statusCode, message } = err;
     interface errResponse {
         code: number,
@@ -11,6 +13,6 @@ const errorHandler = (err: any, req: Request, res: Response, next: NextFunction)
         message: message
     }
     logger.error(`${statusCode ?? 500}-${message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
-    res.status(statusCode).send(rs);
+    return res.status(statusCode).send(rs);
 };
 export default errorHandler
