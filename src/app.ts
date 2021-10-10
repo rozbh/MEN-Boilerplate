@@ -7,12 +7,14 @@ import ApiErr from './utils/ApiErr'
 
 import { StatusCodes, getReasonPhrase } from 'http-status-codes'
 const app = express()
+app.use(express.json())
 app.use(helmet())
 app.use(logHandler)
 
 app.get('/', catchAsync(async (req: Request, res: Response) => {
     res.send('im run bruh')
 }))
+
 
 app.use(() => {
     throw new ApiErr(StatusCodes.NOT_FOUND, getReasonPhrase(StatusCodes.NOT_FOUND))
