@@ -1,8 +1,9 @@
-import { Request, Response } from 'express'
+import { NextFunction, Request, Response } from 'express'
 import ApiErr from '../utils/ApiErr';
 import logger from './logger';
 
-const errorHandler = (err: ApiErr, req: Request, res: Response) => {
+const errorHandler = (err: ApiErr, req: Request, res: Response, next: NextFunction) => {
+    console.log('hi');
     const { statusCode, message } = err;
     interface errResponse {
         code: number,
